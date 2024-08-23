@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="cam">
+      <video id="webcam" autoplay playsinline class="w-screen h-screen"></video>
+    </div>
+    <video
+      src="./src/assets/output.webm"
+      width="400"
+      height="100%"
+      autoplay
+      loop
+      playsinline
+      class="absolute bottom-0 right-0"
+    ></video>
+    <video
+      id="for-sound"
+      src="./src/assets/sample.mp4"
+      width="600"
+      height="100%"
+      autoplay
+      loop
+      class="hidden"
+    ></video>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
