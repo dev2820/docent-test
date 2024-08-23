@@ -6,7 +6,7 @@ export async function startWebcam() {
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        facingMode: "environment",
+        facingMode: { exact: "environment" },
       },
     });
     video.srcObject = stream;
