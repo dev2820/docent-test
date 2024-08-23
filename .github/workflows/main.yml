@@ -25,10 +25,11 @@ jobs:
         with:
           node-version: '16'
           cache: 'pnpm'
+          check-latest: true
       
       # 3. pnpm 설치
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: corepack enable pnpm
       
       # 4. 의존성 설치
       - name: Install dependencies
