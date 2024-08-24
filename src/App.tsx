@@ -3,6 +3,8 @@ import { getBackWebCamStream } from "./utils/webcam";
 import { isFailed } from "./utils/predicate";
 import { Button, Dialog } from "terra-design-system/react";
 import { StartGuide } from "./components/StartGuide";
+import output from "@/assets/output.webm"
+import sample from "@/assets/sample.mp4"
 
 function App() {
   const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
@@ -50,7 +52,7 @@ function App() {
         ref={webCamRef}
       ></video>
       <video
-        src="./src/assets/output.webm"
+        src={output}
         width="400"
         height="100%"
         playsInline
@@ -59,7 +61,7 @@ function App() {
         ></video>
       <video
         id="for-sound"
-        src="./src/assets/sample.mp4"
+        src={sample}
         width="600"
         height="100%"
         className="hidden"
