@@ -1,4 +1,5 @@
 import { monad } from "./monad";
+import { IS_DEV } from "@/constants/env"
 
 // 웹캠 스트림을 요청하는 함수
 export async function getBackWebCamStream() {
@@ -6,7 +7,7 @@ export async function getBackWebCamStream() {
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        // facingMode: { exact: "environment" },
+        facingMode: IS_DEV ? "user":"environment",
         height: { min: 1024, ideal: 1280, max: 1920 },
         width: { min: 576, ideal: 720, max: 1080 },
       },

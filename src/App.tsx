@@ -7,7 +7,7 @@ import output from "@/assets/output.webm"
 import sample from "@/assets/sample.mp4"
 import { useOrientation } from "./hooks/useOrientation";
 import { cx } from "@/utils/cx"
-import { ErrorGuide } from "./components/ErorGuide";
+import { ErrorGuide } from "./components/ErrorGuide";
 
 function App() {
   const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
