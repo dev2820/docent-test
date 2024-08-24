@@ -6,7 +6,9 @@ export async function getBackWebCamStream() {
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        facingMode: { exact: "environment" },
+        // facingMode: { exact: "environment" },
+        height: { min: 1024, ideal: 1280, max: 1920 },
+        width: { min: 576, ideal: 720, max: 1080 },
       },
     });
     return monad.success(stream);
