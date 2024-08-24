@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { getBackWebCamStream } from "./utils/webcam";
 import { isFailed } from "./utils/predicate";
 import { Button, Dialog } from "terra-design-system/react";
+import { StartGuide } from "./components/StartGuide";
 
 function App() {
   const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
 
   const webCamRef = useRef<HTMLVideoElement>(null);
+  const soundRef = useRef<HTMLVideoElement>(null);
+  const docentRef = useRef<HTMLVideoElement>(null);
 
   const startWebCam = async () => {
     if (!webCamRef.current) {
@@ -31,6 +34,12 @@ function App() {
     console.log(e.open)
     setIsErrorDialogOpen(e.open);
   }
+
+  const handleStart = () => {
+    docentRef.current?.play()    
+    soundRef.current?.play()    
+  }
+
   return (
     <>
       <video
@@ -44,20 +53,19 @@ function App() {
         src="./src/assets/output.webm"
         width="400"
         height="100%"
-        autoPlay
-        loop
         playsInline
         className="absolute bottom-0 right-0"
-      ></video>
+        ref={docentRef}
+        ></video>
       <video
         id="for-sound"
         src="./src/assets/sample.mp4"
         width="600"
         height="100%"
-        autoPlay
-        loop
         className="hidden"
+        ref={soundRef}
       ></video>
+      <StartGuide onStart={handleStart}/>
       <Dialog.Root open={isErrorDialogOpen} onOpenChange={handleChangeErrorDialogOpenChange}>
         <Dialog.Content className="p-4">
           <Dialog.Title className="mb-4">Error</Dialog.Title>
