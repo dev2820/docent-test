@@ -58,7 +58,7 @@ function App() {
         id="webcam"
         autoPlay
         playsInline
-        className={cx("object-cover", isPortrait ? 'h-screen' : 'w-screen')}
+        className={cx("object-cover", isPortrait ? 'h-dvh' : 'w-dvw')}
         ref={webCamRef}
       ></video> 
       <video
@@ -78,7 +78,7 @@ function App() {
         ref={soundRef}
       ></video>
       {isReady && !isStarted && <StartGuide onStart={handleStart}/>}
-      {isError && <ErrorGuide className="fixed left-0 top-0 w-screen h-screen" />}
+      {isError && <ErrorGuide className="fixed left-0 top-0 w-dvw h-dvh" />}
       <Dialog.Root open={isErrorDialogOpen} onOpenChange={handleChangeErrorDialogOpenChange}>
         <Dialog.Content className="p-4">
           <Dialog.Title className="mb-4 text-red-500">Error</Dialog.Title>

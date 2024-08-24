@@ -14,7 +14,7 @@ export function StartGuide({ onStart }: { onStart?: () => void }) {
   return (
     <div
       className={cx(
-        "fixed z-10000 w-screen h-screen left-0 top-0 bg-gray-200/80",
+        "fixed z-10000 w-dvw h-dvh left-0 top-0 bg-gray-200/80",
         "flex flex-col place-items-center justify-center",
         show ? "block" : "hidden"
       )}
